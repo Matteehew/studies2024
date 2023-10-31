@@ -28,7 +28,7 @@ public class ExampleSubsystem extends SubsystemBase {
    *
    * @return a command
    */
-  public CommandBase exampleMethodCommand(double value) {
+  public CommandBase SwivelMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
@@ -55,7 +55,7 @@ public class ExampleSubsystem extends SubsystemBase {
           /* one-time action goes here */
         });
   }
-  public CommandBase HisMethodCommand(double value) {
+  public CommandBase WristMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
@@ -64,7 +64,7 @@ public class ExampleSubsystem extends SubsystemBase {
           /* one-time action goes here */
         });
   }
-  public CommandBase HerMethodCommand(double value) {
+  public CommandBase ClawMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
@@ -73,7 +73,7 @@ public class ExampleSubsystem extends SubsystemBase {
           /* one-time action goes here */
         });
   }
-  public CommandBase TheirMethodCommand(double value) {
+  public CommandBase PresetMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
@@ -88,8 +88,26 @@ public class ExampleSubsystem extends SubsystemBase {
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          x_servo.set(0.7);
-          y_servo.set(0.8);
+          x_servo.set(0.2);
+          y_servo.set(0.2);
+          /* one-time action goes here */
+        });
+  }
+  public CommandBase AutoMethodCommand() {
+    // Inline construction of command goes here.
+    // Subsystem::RunOnce implicitly requires `this` subsystem.
+    return run(
+        () -> {
+          y_servo.set(0.2);
+          /* one-time action goes here */
+        });
+  }
+  public CommandBase Auto2MethodCommand() {
+    // Inline construction of command goes here.
+    // Subsystem::RunOnce implicitly requires `this` subsystem.
+    return run(
+        () -> {
+          x_servo.set(-0.2);
           /* one-time action goes here */
         });
   }

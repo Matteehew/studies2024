@@ -50,25 +50,27 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.rightTrigger().whileTrue(m_exampleSubsystem.exampleMethodCommand(0.01));
-    m_driverController.leftTrigger().whileTrue(m_exampleSubsystem.exampleMethodCommand(-0.01));
-    m_driverController.x().whileTrue(m_exampleSubsystem.MyMethodCommand(0.01));
-    m_driverController.a().whileTrue(m_exampleSubsystem.MyMethodCommand(-0.01));
-    m_driverController.y().whileTrue(m_exampleSubsystem.YourMethodCommand(0.01));
-    m_driverController.b().whileTrue(m_exampleSubsystem.YourMethodCommand(-0.01));
-    m_driverController.rightBumper().whileTrue(m_exampleSubsystem.HisMethodCommand(0.01));
-    m_driverController.leftBumper().whileTrue(m_exampleSubsystem.HisMethodCommand(-0.01));
-    m_driverController.povRight().whileTrue(m_exampleSubsystem.HerMethodCommand(0.01));
-    m_driverController.povLeft().whileTrue(m_exampleSubsystem.HerMethodCommand(-0.01));
-    n_driverController.a().whileTrue(m_exampleSubsystem.TheirMethodCommand(0.01));
-    n_driverController.b().whileTrue(m_exampleSubsystem.TheirMethodCommand(-0.01));
-    n_driverController.rightTrigger().whileTrue(m_exampleSubsystem.exampleMethodCommand(0.01));
-    n_driverController.leftTrigger().whileTrue(m_exampleSubsystem.exampleMethodCommand(-0.01));
-    n_driverController.back().whileTrue(m_exampleSubsystem.HerMethodCommand(0.01));
-    n_driverController.start().whileTrue(m_exampleSubsystem.HerMethodCommand(-0.01));
-    n_driverController.rightBumper().whileTrue(m_exampleSubsystem.HisMethodCommand(0.01));
-    n_driverController.leftBumper().whileTrue(m_exampleSubsystem.HisMethodCommand(-0.01));
+    m_driverController.rightTrigger().whileTrue(m_exampleSubsystem.SwivelMethodCommand(0.005));
+    m_driverController.leftTrigger().whileTrue(m_exampleSubsystem.SwivelMethodCommand(-0.005));
+    m_driverController.x().whileTrue(m_exampleSubsystem.MyMethodCommand(0.005));
+    m_driverController.a().whileTrue(m_exampleSubsystem.MyMethodCommand(-0.005));
+    m_driverController.y().whileTrue(m_exampleSubsystem.YourMethodCommand(0.005));
+    m_driverController.b().whileTrue(m_exampleSubsystem.YourMethodCommand(-0.005));
+    m_driverController.rightBumper().whileTrue(m_exampleSubsystem.WristMethodCommand(0.005));
+    m_driverController.leftBumper().whileTrue(m_exampleSubsystem.WristMethodCommand(-0.005));
+    m_driverController.povRight().whileTrue(m_exampleSubsystem.ClawMethodCommand(0.005));
+    m_driverController.povLeft().whileTrue(m_exampleSubsystem.ClawMethodCommand(-0.005));
+    n_driverController.a().whileTrue(m_exampleSubsystem.PresetMethodCommand(0.005));
+    n_driverController.b().whileTrue(m_exampleSubsystem.PresetMethodCommand(-0.005));
+    n_driverController.rightTrigger().whileTrue(m_exampleSubsystem.SwivelMethodCommand(0.005));
+    n_driverController.leftTrigger().whileTrue(m_exampleSubsystem.SwivelMethodCommand(-0.005));
+    n_driverController.back().whileTrue(m_exampleSubsystem.ClawMethodCommand(0.005));
+    n_driverController.start().whileTrue(m_exampleSubsystem.ClawMethodCommand(-0.005));
+    n_driverController.rightBumper().whileTrue(m_exampleSubsystem.WristMethodCommand(0.005));
+    n_driverController.leftBumper().whileTrue(m_exampleSubsystem.WristMethodCommand(-0.005));
     n_driverController.povDown().whileTrue(m_exampleSubsystem.BestMethodCommand());
+    n_driverController.povUp().whileTrue(m_exampleSubsystem.AutoMethodCommand());
+    n_driverController.povUp().whileTrue(m_exampleSubsystem.Auto2MethodCommand());
   }
 
   /**
