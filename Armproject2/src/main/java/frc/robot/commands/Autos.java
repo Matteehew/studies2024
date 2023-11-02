@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 public final class Autos {
   /** Example static factory for an autonomous command. */
   public static CommandBase exampleAuto(ExampleSubsystem subsystem) {
-    return Commands.sequence(subsystem.AutoMethodCommand(), new ExampleCommand(subsystem), subsystem.Auto2MethodCommand(), new ExampleCommand(subsystem));
+    return Commands.sequence(subsystem.Preset2MethodCommand(), subsystem.AutoMethodCommand(), subsystem.ResetMethodCommand());
   }
 
   private Autos() {

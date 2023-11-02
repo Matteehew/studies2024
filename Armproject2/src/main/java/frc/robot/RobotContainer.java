@@ -68,9 +68,11 @@ public class RobotContainer {
     n_driverController.start().whileTrue(m_exampleSubsystem.ClawMethodCommand(-0.005));
     n_driverController.rightBumper().whileTrue(m_exampleSubsystem.WristMethodCommand(0.005));
     n_driverController.leftBumper().whileTrue(m_exampleSubsystem.WristMethodCommand(-0.005));
-    n_driverController.povDown().whileTrue(m_exampleSubsystem.BestMethodCommand());
+    n_driverController.start().whileTrue(m_exampleSubsystem.BestMethodCommand());
     n_driverController.povUp().whileTrue(m_exampleSubsystem.AutoMethodCommand());
-    n_driverController.povUp().whileTrue(m_exampleSubsystem.Auto2MethodCommand());
+    n_driverController.povDown().whileTrue(m_exampleSubsystem.Auto2MethodCommand());
+    n_driverController.y().whileTrue(m_exampleSubsystem.ResetMethodCommand());
+    n_driverController.x().whileTrue(m_exampleSubsystem.Preset2MethodCommand());
   }
 
   /**

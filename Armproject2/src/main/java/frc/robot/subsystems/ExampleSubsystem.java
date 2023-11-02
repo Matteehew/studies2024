@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 public class ExampleSubsystem extends SubsystemBase {
   private final Servo m_servo;
@@ -14,6 +15,7 @@ public class ExampleSubsystem extends SubsystemBase {
   private final Servo y_servo;
   private final Servo wrist_servo;
   private final Servo claw_servo;
+
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {
     m_servo = new Servo(9);
@@ -33,56 +35,99 @@ public class ExampleSubsystem extends SubsystemBase {
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          m_servo.set(m_servo.get()+value);
+          m_servo.set(m_servo.get() + value);
           /* one-time action goes here */
         });
   }
+
   public CommandBase MyMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          x_servo.set(x_servo.get()+value);
+          x_servo.set(x_servo.get() + value);
           /* one-time action goes here */
         });
   }
+
   public CommandBase YourMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          y_servo.set(y_servo.get()+value);
+          y_servo.set(y_servo.get() + value);
           /* one-time action goes here */
         });
   }
+
   public CommandBase WristMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          wrist_servo.set(wrist_servo.get()+value);
+          wrist_servo.set(wrist_servo.get() + value);
           /* one-time action goes here */
         });
   }
+
   public CommandBase ClawMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          claw_servo.set(claw_servo.get()+value);
+          claw_servo.set(claw_servo.get() + value);
           /* one-time action goes here */
         });
   }
+
   public CommandBase PresetMethodCommand(double value) {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          x_servo.set(x_servo.get()+value);
-          y_servo.set(y_servo.get()+value);
+          m_servo.set(0.5);
+          x_servo.set(x_servo.get() + value);
+          y_servo.set(y_servo.get() + value);
+          wrist_servo.set(0.5);
+          claw_servo.set(0);
           /* one-time action goes here */
         });
   }
+
+  public CommandBase Preset2MethodCommand() {
+    // Inline construction of command goes here.
+    // Subsystem::RunOnce implicitly requires `this` subsystem.
+    return runOnce(
+        () -> {
+          m_servo.set(0.5);
+          x_servo.set(1);
+          y_servo.set(1);
+          wrist_servo.set(0.5);
+          claw_servo.set(0);
+          System.out.println("**************************************************");
+          /* one-time action goes here */
+        }).andThen(runOnce(() -> {System.out.println("0000000000000000000000000000000000000000");
+          m_servo.set(0);}));
+  }
+
+  public CommandBase ResetMethodCommand() {
+    // Inline construction of command goes here.
+    // Subsystem::RunOnce implicitly requires `this` subsystem.
+    return run(
+        () -> {
+          m_servo.set(0.5);
+          x_servo.set(1);
+          //try {
+          //  Thread.sleep(10000);
+          //} catch (InterruptedException e) {
+          //  e.printStackTrace();
+          //}
+          /* one-time action goes here */
+        }.andThen(runOnce(() -> {System.out.println("0000000000000000000000000000000000000000");
+        y_servo.set(1);
+        wrist_servo.set(0.5);})));
+  }
+
   public CommandBase BestMethodCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
@@ -93,27 +138,39 @@ public class ExampleSubsystem extends SubsystemBase {
           /* one-time action goes here */
         });
   }
+
   public CommandBase AutoMethodCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          y_servo.set(0.2);
+          m_servo.set(0);
+          x_servo.set(0.4);
+          y_servo.set(0.5);
+          try {
+            Thread.sleep(1000);
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          }
+          wrist_servo.set(0.2);
+          claw_servo.set(1);
           /* one-time action goes here */
         });
   }
+
   public CommandBase Auto2MethodCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
         () -> {
-          x_servo.set(-0.2);
+          x_servo.set(0.2);
           /* one-time action goes here */
         });
   }
 
   /**
-   * An example method querying a boolean state of the subsystem (for example, a digital sensor).
+   * An example method querying a boolean state of the subsystem (for example, a
+   * digital sensor).
    *
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
